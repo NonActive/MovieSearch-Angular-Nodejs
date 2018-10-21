@@ -1,0 +1,34 @@
+<main role="main" class="container">
+  <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-red rounded box-shadow">
+    <img class="mr-3" src="https://img.csfd.cz/assets/b196/images/logo.png" alt="" width="220">
+    <div class="lh-100">
+      <h6 class="mb-0 text-white lh-100">Rebríčky</h6>
+      <small>csfd.cz</small>
+    </div>
+  </div>
+
+  <div class="my-3 p-3 bg-white rounded box-shadow">
+    <table class="table text-muted small" *ngIf="movies">
+      <tbody>
+        <tr *ngFor="let movie of movies, let i = index" [attr.data-index]="i">
+          <th scope="row">{{i + 1}}</th>
+          <td><strong><a routerLink="/title/{{movie._id}}">{{ movie.title }} </a> ({{ movie.dateCreated }})</strong></td>
+          <td>
+            <p class="text-gray-dark">{{ movie.genre }}</p>
+          </td>
+          <td>
+            <p class="text-gray-dark">{{ movie.rating.avg_rating }} %</p>
+          </td>
+          <td>
+            <p class="text-gray-dark"><strong>{{ movie.rating.count }}</strong> hodnotení</p>
+          </td>
+      </tbody>
+    </table>
+
+
+
+    <small class="d-block text-right mt-3">
+      <a href="#">All updates</a>
+    </small>
+  </div>
+</main>

@@ -1,0 +1,54 @@
+.manifestation-title {
+	font-size: 3rem;
+	line-height: 1.33333;
+	font-weight: 400;
+	color: #000 !important;
+}
+
+.manifestation-subtitle {
+	font-size: 1.125rem;
+	color: #625d58;
+}
+
+.bar {
+	display:-webkit-box;
+	display:-ms-flexbox;
+	display:flex;
+	-webkit-box-orient:horizontal;
+	-webkit-box-direction:normal;
+	-ms-flex-flow:row;
+	flex-flow:row;
+	-ms-flex-wrap:wrap;
+	flex-wrap:wrap;
+	-webkit-box-align:center;
+	-ms-flex-align:center;
+	align-items:center;
+	
+}
+
+.bar-item {
+	-webkit-box-flex:0;
+	-ms-flex:0 0 auto;
+	flex:0 0 auto;
+	min-width:0;
+	-webkit-box-align:center;
+	-ms-flex-align:center;
+	align-items:center
+}
+
+.bar-item {
+ 	margin-right: .5rem
+ }
+
+.bar-item--border {
+ border-left:1px solid #e5e5e5;
+ -ms-flex-item-align:stretch;
+ align-self:stretch
+}
+
+
+
+dd {
+	font-size: .85rem;
+	font-weight: 600;
+}

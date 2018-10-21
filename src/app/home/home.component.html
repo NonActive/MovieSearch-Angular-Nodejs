@@ -1,0 +1,45 @@
+<div class="container h-100">
+	<div class="row align-items-center h-100">
+		<!-- <form [formGroup]="searchForm" (ngSubmit)="onSubmit(searchInput.value)" class="input-group">
+		<input #searchInput formControlName="searchInput" type="text" class="form-control" placeholder="Search...">
+		<div class="input-group-append">
+			<button class="btn btn-secondary" [disabled]="!searchForm.valid" type="submit">
+				<i class="fa fa-search"></i>
+			</button>
+		</div>
+	</form> -->
+
+		<form class="input-group" [formGroup]="searchForm">
+			<ng-select #searchBox [items]="movies$ | async" [typeahead]="movieInput$" bindLabel="title" placeholder="Search movies ..."
+			 [(ngModel)]="selectedMovie" [closeOnSelect]="false" [ngModelOptions]="{standalone: true}" (change)="onSelect($event, searchBox)"
+			 name="search">
+				<ng-template ng-notfound-tmp let-searchTerm="searchTerm">
+					<div class="ng-option disabled">
+						No data found for "{{searchTerm}}"
+					</div>
+				</ng-template>
+				<ng-template class="autocomplete-option" ng-option-tmp let-item="item">
+					<div class="autocomplete-option">
+						<img *ngIf="item.image" [src]="item.image" height="45" width="35" alt="">
+						<div class="autocomplete-info">
+							{{ item.title }} ({{ item.dateCreated }}) <br />
+							<small>{{ item.genre }}</small>
+						</div>
+					</div>
+
+
+				</ng-template>
+
+				<!-- Disable type on search hint -->
+				<ng-template ng-typetosearch-tmp></ng-template>
+			</ng-select>
+			<div class="input-group-append">
+				<button class="btn btn-secondary" type="submit">
+					<i class="fa fa-search"></i>
+				</button>
+			</div>
+		</form>
+
+		{{ selectedMovie | json }}
+	</div>
+</div>
